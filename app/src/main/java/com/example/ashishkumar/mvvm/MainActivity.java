@@ -15,15 +15,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragments_layout);
 
         mFragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        MainFragment mainFragment = new MainFragment();
-        fragmentTransaction.replace(R.id.activity_fragments_container, mainFragment);
-        fragmentTransaction.commit();
-
+        showFragment(new MainFragment());
     }
 
     private void showFragment(Fragment fragment) {
-
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.activity_fragments_container, fragment);
+        fragmentTransaction.commit();
     }
-
 }
